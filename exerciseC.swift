@@ -109,6 +109,19 @@ print("------------------------ HabitItem & Driver Function --------------------
 // Use the driver function to create a list of HabitItems from the habit data string
 // Prints all the created HabitItems
 var habitList = driverFunc(habitData: habitData)
+//OUTPUT
+// ID: 1, Habit: Brush Teeth, Period: Morning, Streak: 0
+// ID: 2, Habit: Make Bed, Period: Morning, Streak: 0
+// ID: 3, Habit: Gym, Period: Morning, Streak: 0
+// ID: 4, Habit: Protein Intake, Period: Morning, Streak: 0
+// ID: 5, Habit: Breakfast, Period: Morning, Streak: 0
+// ID: 6, Habit: Cold Shower, Period: Morning, Streak: 0
+// ID: 7, Habit: Prayer, Period: Morning, Streak: 0
+// ID: 8, Habit: Meditation, Period: Afternoon, Streak: 0
+// ID: 9, Habit: Gratitude Text, Period: Afternoon, Streak: 0
+// ID: 10, Habit: Program 1 Hour, Period: Afternoon, Streak: 0
+// ID: 11, Habit: Hot Shower, Period: Evening, Streak: 0
+// ID: 12, Habit: Bedtime Meditation, Period: Evening, Streak: 0
 
 // ------------------------ HabitManager Methods ------------------------
 
@@ -122,6 +135,7 @@ if let printedItem = foundItem {
 } else {
   print("Could not find item by index")
 }
+//OUTPUT: ID: 3, Habit: Gym, Period: Morning, Streak: 0
 
 // Try to get an item that doesn't exist by index and handle the case
 var notFoundItem = testManager.getItem(byIndex: 30)
@@ -130,6 +144,7 @@ if let printedItem = notFoundItem {
 } else {
   print("Could not find item by index")
 }
+//OUTPUT: Could not find item by index
 
 // Get the item by ID and print it
 var foundItemById = testManager.getItem(byId: 5)
@@ -138,6 +153,7 @@ if let printedItemById = foundItemById {
 } else {
   print("Could not find item by ID")
 }
+//OUTPUT: ID: 5, Habit: Breakfast, Period: Morning, Streak: 0
 
 // Try to get an item that doesn't exist by ID and handle the case
 var notFoundItemById = testManager.getItem(byId: 50)
@@ -146,18 +162,34 @@ if let printedNotId = notFoundItemById {
 } else {
   print("Could not find item by ID")
 }
+//OUTPUT: Could not find item by ID
 
 // Add a new item to the HabitManager
 let newItem = HabitItem(id: 20, habit: "service", period: "afternoon", streak: "2")
 testManager.addItem(newItem)
-
 // Retrieve and print the newly added item by its ID
 var newItemPrint = testManager.getItem(byId: 20)
 print(newItemPrint ?? "Could not find new item")
+//OUTPUT: ID: 20, Habit: service, Period: afternoon, Streak: 2
+
 
 // Delete an item by its ID and print the result (whether it was deleted or not)
 let deletedItem = testManager.deleteItem(byId: 1)
 print(deletedItem ? "Item deleted" : "Could not find item")
+//OUTPUT: Item deleted
 
 // Test the printAll() method to print all the remaining items in the manager
 testManager.printAll()
+//OUTPUT
+// ID: 2, Habit: Make Bed, Period: Morning, Streak: 0
+// ID: 3, Habit: Gym, Period: Morning, Streak: 0
+// ID: 4, Habit: Protein Intake, Period: Morning, Streak: 0
+// ID: 5, Habit: Breakfast, Period: Morning, Streak: 0
+// ID: 6, Habit: Cold Shower, Period: Morning, Streak: 0
+// ID: 7, Habit: Prayer, Period: Morning, Streak: 0
+// ID: 8, Habit: Meditation, Period: Afternoon, Streak: 0
+// ID: 9, Habit: Gratitude Text, Period: Afternoon, Streak: 0
+// ID: 10, Habit: Program 1 Hour, Period: Afternoon, Streak: 0
+// ID: 11, Habit: Hot Shower, Period: Evening, Streak: 0
+// ID: 12, Habit: Bedtime Meditation, Period: Evening, Streak: 0
+// ID: 20, Habit: service, Period: afternoon, Streak: 2
